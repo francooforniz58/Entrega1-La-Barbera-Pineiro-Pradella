@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from appBandmates.models import *
@@ -9,7 +10,8 @@ def inicio(request):
 
 def musicos(request):
 
-    return render(request, "appBandmates/musicos.html")
+    lista = Musico.objects.all()
+    return render(request, "appBandmates/musicos.html",{"lista":lista})
 
 def bandas(request):
     
@@ -31,7 +33,7 @@ def musicos(request):
 
             informacion = miFormulario.cleaned_data
 
-            musico = Musico(nombre=informacion['nombre'], apellido=informacion['apellido'], edad=informacion['edad'], genero=informacion['genero'], email=informacion['email']) 
+            musico = Musico(nombre=informacion['nombre'], edad=informacion['edad'], genero=informacion['genero'], email=informacion['email']) 
 
             musico.save()
 
@@ -77,7 +79,7 @@ def managers(request):
 
             informacion = miFormulario.cleaned_data
 
-            manager = Manager(nombre=informacion['nombre'], apellido=informacion['apellido'], edad=informacion['edad'], numero=informacion['numero'], email=informacion['email']) 
+            manager = Manager(nombre=informacion['nombre'], edad=informacion['edad'], numero=informacion['numero'], email=informacion['email']) 
 
             manager.save()
 
@@ -88,6 +90,20 @@ def managers(request):
 
     return render(request, "appBandmates/managers.html", {"miFormulario":miFormulario})
 
+def busquedaNombre(request):
+    
+    return render(request, "appBandmates/busquedaNombre.html")
 
+def buscar(request):
+    #respuesta = f"Estamos buscando el usuario con nombre: {request.GET['nombre']}"
+    if  request.GET["nombre"]:
 
+        nombre =request.GET["nombre"]
+        musicos = Musico.objects.filter(nombre__incontains=nombre)
+        return render(request, "appBandmates/resultadosBusqueda.html", {"nombre":nombre, "musicos":musicos})
+    
+    else:
+        respuesta = "no enviaste datos"
+
+    return HttpResponse(respuesta)
 
