@@ -1,5 +1,4 @@
 # Entrega-La-Barbera-Piñeiro-Pradella
 
-#Como primera instancia, la aplicacion web se va a tratar sobre una aplicacion de networking en la cual musicos de distintos generos se van a poder registrar y formar bandas, poniendo tags dependiendo sus habilidades, gustos y de esa manera "matchear" con distintos musicos. Tendra un catalogo donde se podra filtrar distintos tags, tambien contara con perfiles propios que contendra una foto de perfil, informacion sobre sus gustos musicales, archivos de audio y datos de contacto. Contara con un foro en el cual los usuarios podran debatir sobre, por ejemplo, si la musica de antes es mejor que la de ahora. Los usuarios podran votar premios, como por ejemplo, musico del año, cancion del año, etc. Cuenta con una homepage que contiene un feed de noticias segun los gustos musicales que ingreso la persona al registrarse, tambien cuenta con la parte del login, sign up. 
-
-#Esto es una idea temprana a desarrollar. Proximamente continuaremos desarrollando la idea, pudiendo haber grandes cambios. saludos
+#Para probar el proyecto, ingresar en /appBandmates/ 
+#ahi los llevara al inicio y podran navegar.
