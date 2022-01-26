@@ -1,0 +1,46 @@
+{% extends 'appBandmates/padre.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+<style>
+    #hh1{
+        text-align: center;
+        background-color: moccasin;
+        font-family: fantasy;
+        color:saddlebrown;
+        margin: 0%;
+    }
+    #f1{
+        
+        background-color: moccasin;
+        font-family: fantasy;
+        color:chocolate;
+        margin: 0%;
+    }
+    #hh2{
+        color: saddlebrown; 
+        background-color: moccasin;
+        margin: 0%;
+        font-family: fantasy;
+    }
+    </style>
+    <h1 id="hh1">MANAGERS</h1>
+    <h2 id="hh2">Registrarse</h2>
+    
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+    
+    {% endif %}
+    <form action="" method="POST" id="f1">{% csrf_token %}
+    
+        <table>
+            {{miFormulario.as_table}}
+        </table>
+    
+        <input type="submit", value="Enviar">
+    
+    </form>
+{% endblock contenidoQueCambia %}
